@@ -85,6 +85,27 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Extra Article One',
+    date: 'Feb 13th, 2020',
+    firstParagraph: 'lorem',
+    secondParagraph: 'lorem',
+    thirdParagraph: 'lorem'
+  },
+  {
+    title: 'Extra Article Two',
+    date: 'Feb 13th, 2020',
+    firstParagraph: 'lorem',
+    secondParagraph: 'lorem',
+    thirdParagraph: 'lorem'
+  },
+  {
+    title: 'Extra Article Three',
+    date: 'Feb 13th, 2020',
+    firstParagraph: 'lorem',
+    secondParagraph: 'lorem',
+    thirdParagraph: 'lorem'
   }
 ];
 
@@ -112,3 +133,41 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+function createcomponent(obj) {
+  const container = document.createElement('div');
+  const title = document.createElement('h2');
+  const date = document.createElement('p');
+  const paragraph1 = document.createElement('p');
+  const paragraph2 = document.createElement('p');
+  const paragraph3 = document.createElement('p');
+  const button = document.createElement('span');
+
+
+  container.appendChild(title);
+  container.appendChild(date);
+  container.appendChild(paragraph1);
+  container.appendChild(paragraph2);
+  container.appendChild(paragraph3);
+  container.appendChild(button);
+
+  container.classList.add('article');
+  date.classList.add('date');
+  button.classList.add('expandButton');
+
+  title.textContent = obj.title;
+  date.textContent = obj.date;
+  paragraph1.textContent = obj.firstParagraph;
+  paragraph2.textContent = obj.secondParagraph;
+  paragraph3.textContent = obj.thirdParagraph;
+  button.textContent = 'open';
+
+  button.addEventListener('click', () => {
+    container.classList.toggle('article-open');
+  })
+  return container;
+};
+
+data.map(element => {
+  document.querySelector('.articles').appendChild(createcomponent(element))
+})
