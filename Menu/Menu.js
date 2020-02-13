@@ -33,3 +33,62 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+
+function createMenu(array) {
+  const menu = document.createElement('div');
+  const list = document.createElement('ul');
+  const listitem1 = document.createElement('li');
+  const listitem2 = document.createElement('li');
+  const listitem3 = document.createElement('li');
+  const listitem4 = document.createElement('li');
+  const listitem5 = document.createElement('li');
+  const listitem6 = document.createElement('li');
+
+  menu.appendChild(list);
+  list.appendChild(listitem1);
+  list.appendChild(listitem2);
+  list.appendChild(listitem3);
+  list.appendChild(listitem4);
+  list.appendChild(listitem5);
+  list.appendChild(listitem6);
+
+  menu.classList.add('menu');
+
+  document.querySelector('.menu-button').addEventListener('click', () => {
+    menu.classList.toggle('menu--open');
+  })
+
+  listitem1.textContent = array[0];
+  listitem2.textContent = array[1];
+  listitem3.textContent = array[2];
+  listitem4.textContent = array[3];
+  listitem5.textContent = array[4];
+  listitem6.textContent = array[5];
+
+  return menu;
+}
+
+document.querySelector('.header').appendChild(createMenu(menuItems));
+
+// function createMenu(array) {
+//   const menu = document.createElement('div');
+//   const list = document.createElement('ul');
+
+//   menu.appendChild(list);
+//   array.forEach(element => {
+//     list.appendChild(document.createElement('li'));
+//   });
+
+
+
+//   menu.classList.add('menu');
+
+//   document.querySelector('.menu-button').addEventListener('click', () => {
+//     menu.classList.toggle('menu--open');
+//   })
+
+
+//   return menu;
+// }
+
+// document.querySelector('.header').appendChild(createMenu(menuItems));
